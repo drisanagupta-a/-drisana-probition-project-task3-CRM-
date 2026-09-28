@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard — Task CRM</title>
+  <meta name="description" content="Operational executive dashboard and metrics overview for Task CRM.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="styles/reset.css">
+  <link rel="stylesheet" href="styles/tokens.css">
+  <link rel="stylesheet" href="styles/base.css">
+  <link rel="stylesheet" href="styles/layout.css">
+  <link rel="stylesheet" href="styles/patterns.css">
+</head>
+
+<body class="app-wrapper dashboard-page">
+
+  <header class="identity-bar">
+    <div class="identity-bar__inner">
+      <div class="identity-session">
+        <span class="session-user">
+          <span class="meta-slug">Session:</span>
+          <strong id="sessionUserDisplay">admin@taskcrm.io</strong>
+        </span>
+
+        <button type="button" id="logoutBtn" class="session-logout-btn" title="Sign out of current session">
+          Sign Out
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <nav class="nav-rail" aria-label="Main Navigation">
+    <div class="nav-rail__inner">
+      <a href="dashboard.html" class="nav-link" data-page="dashboard">Dashboard</a>
+      <a href="customers.html" class="nav-link" data-page="customers">Customers</a>
+      <a href="leads.html" class="nav-link" data-page="leads">Leads</a>
+      <a href="tasks.html" class="nav-link" data-page="tasks">Tasks</a>
+    </div>
+  </nav>
+
+  <main class="main-container">
+
+    <header class="page-header">
+      <div class="page-header__top">
+        <div>
+         
+          <h1 class="page-title">Dashboard</h1>
+          <p class="page-subtitle">Overview of your customers, leads, and tasks</p>
+        </div>
+
+        <div class="page-actions">
+          <button type="button" id="resetDataBtn" class="btn btn--secondary btn--sm" title="Reload seed datasets to initial state">
+            ↻ Reset Sample Data
+          </button>
+
+          <a href="customers.html" class="btn btn--primary btn--sm">
+            View Customers →
+          </a>
+        </div>
+      </div>
+    </header>
+
+    <section aria-labelledby="metricsSectionTitle">
+      <h2 id="metricsSectionTitle" class="sr-only">Key Performance Metrics</h2>
+      <div id="dashboardStatsContainer" class="stat-composition"></div>
+    </section>
+
+    <div class="dashboard-split-grid">
+
+      <section class="content-panel" aria-labelledby="activitySectionTitle">
+        <header class="content-panel__header">
+          <div>
+            <span class="meta-slug">Activity</span>
+            <h2 id="activitySectionTitle" class="content-panel__title">Recent Activity</h2>
+          </div>
+
+          <span class="meta-slug">Recent</span>
+        </header>
+
+        <div id="recentActivitiesContainer"></div>
+      </section>
+
+      <section class="content-panel" aria-labelledby="salesSectionTitle">
+        <header class="content-panel__header">
+          <div>
+            <span class="meta-slug">Sales Overview</span>
+            <h2 id="salesSectionTitle" class="content-panel__title">Recent Sales</h2>
+          </div>
+
+          <span class="meta-slug">Sales</span>
+        </header>
+
+        <div id="salesBreakdownContainer"></div>
+      </section>
+
+    </div>
+
+  </main>
+
+  <script src="scripts/helpers.js"></script>
+  <script src="scripts/store.js"></script>
+  <script src="scripts/view.js"></script>
+  <script src="scripts/pages/dashboard.js"></script>
+
+</body>
+</html>
